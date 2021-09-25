@@ -1,0 +1,12 @@
+oled\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/port.c
+oled\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+oled\port.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+oled\port.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+oled\port.o: ../Core/Inc/FreeRTOSConfig.h
+oled\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+oled\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+oled\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+oled\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+oled\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+oled\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+oled\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h

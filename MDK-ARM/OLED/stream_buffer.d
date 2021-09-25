@@ -1,0 +1,14 @@
+oled\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c
+oled\stream_buffer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+oled\stream_buffer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+oled\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+oled\stream_buffer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+oled\stream_buffer.o: ../Core/Inc/FreeRTOSConfig.h
+oled\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+oled\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+oled\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+oled\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+oled\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+oled\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+oled\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+oled\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h

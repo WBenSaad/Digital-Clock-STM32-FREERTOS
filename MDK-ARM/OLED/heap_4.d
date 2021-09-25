@@ -1,0 +1,13 @@
+oled\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c
+oled\heap_4.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+oled\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+oled\heap_4.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+oled\heap_4.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+oled\heap_4.o: ../Core/Inc/FreeRTOSConfig.h
+oled\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+oled\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+oled\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+oled\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+oled\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+oled\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+oled\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
