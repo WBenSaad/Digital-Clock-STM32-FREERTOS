@@ -88,9 +88,9 @@ Should set the format to BCD and also activate both RTC Golabal interrupt and th
 ### CubeMX Project Configuration
 In the project Tab , choose the adequate Toolchain to use , be it a Makefile or an IDE
 ![image](https://user-images.githubusercontent.com/33790012/134831179-60f7bfda-a1f6-4e66-91cc-853eb9afd387.png)
-In the Code Generator Tab :
-1.Check copy only the necessary library files 
-2.Generate peripheral initialization as a pair of .c/.h files to a small main.c file (optional)
+In the Code Generator Tab :  
+1.Check copy only the necessary library files  
+2.Generate peripheral initialization as a pair of .c/.h files to an unbloated  main.c file (optional)
 ![image](https://user-images.githubusercontent.com/33790012/134831327-1831aca3-a477-4ad2-bd14-8ae88c60d324.png)
 Clicking on Generate code will Generate our project.  
 
