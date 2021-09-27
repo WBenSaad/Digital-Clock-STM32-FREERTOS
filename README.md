@@ -1,6 +1,6 @@
 
 
-# esp32-iot-temperature-and-humidity-monitoring-with-firebase-real-time-data-base
+# STM32 based DIGITAL-Clock 
 
 ## Table of contents
 
@@ -40,39 +40,64 @@
 ![image](https://user-images.githubusercontent.com/86969450/128428449-4470b309-326e-4470-a66a-8fdc706914c3.png)
 
 
-ESP32 is a powerful hardware platform for IoT applications and is widely used for prototyping and development of IoT applications.
 
-This prject will demonstrate the fastest method to connect your ESP32 to Google’s Firebase backend. Firebase has become a very convenient option for developers to rapidly prototype their ideas, in this tutorial we lay the ground work for the development of a realtime temperature and humidity monitoring solution. 
-
-This tutorial further demostrates how to interface the DHT11 temperature and humidity sensor with the ESP32 using Arduino IDE and how to upload sensor data on google Firebase's  realtime database . 
+This projects aims on implementing a Digital clock with a simple GUI to allow the user to do basic operations like change up the time/date or set up an alarm
+While FreeRTOS isn't particularly needed,it greatly simplifies the implementation with the different mechanism it offers to ensure sequential and synchronized behaviour 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
 ### Hardware Requirements:
-* ESP32 development board (any ESP32 board is okay, for this project we will be using the ESP32 DevKit v1).
-* DHT11 temperature and humidity sensor or sensor module .
-* x2 RGB LEDs
-* x6 390 ohm resistors
-* one 10K resistor (in case you have the sensorwithout the module since the module has a built-in resistor) 
-* Breadboard
+* An STM32 microcontroller (for this project I used an STM32F103 bluepill).
+* An ST-Link for flashing/Debugging (Other development boards like Nucleo offer on-board Flasher/Debugger)
+* An SSD1306 OLED 
+* x2 Buttons that will be used to interface with the GUI
+* x2 10KOhm resistors to be wired with the pushbuttons
+* A Buzzer ( While optional ,an amplifier is recommended as most Low Cost buzzers barely make a hearable sound)
 * Wires
 
 ### Software Requirements:
-* Arduino IDE (If you haven't already installed or configured it using esp32, check this awesome [tutorial](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/) by Rui Santos)
-* DHT11 sensor library : DHTNEW for arduino by RobTillaart , you can find it [here](https://github.com/RobTillaart/DHTNEW)
-* Wifi library (should be installed by default)
-* Firebase esp library : Firebase Realtime Database Arduino Library for ESP32 by Mobizt, you can find it [here](https://github.com/mobizt/Firebase-ESP32)
+* STMCubeMX will be used to set all peripherals and clocks
+* SSD1306 OLED library made by Afiskon (https://github.com/afiskon/stm32-ssd1306/tree/master/ssd1306)
+* GNU Make or an IDE like Keil/IAR depending on your CubeMX project configuration 
 
 
 
-### Backend Setup:
-* In order to use Google's Firebase you need a Google account.
-* to get started head over to Firebase, and sign in using your Google account. 
-    
-To start a new project, select the **Add project option**. Enter your project name and click the blue **Continue button**. I’ve called my project ***ESP32 dht11***.
+### Setting up the Peripherals using STMCubeMX:
 
-![image](https://user-images.githubusercontent.com/86969450/128199695-032f0780-9eb1-434f-ba12-ff788f63cdd1.png)
+In the project we will need these peripherals:
+* I2C1 (PB7 SDA and PB6 SCL) will be used in order to communicate with the Display
+* an RTC will be utilized to increment the time
+* Timer1 to Generate a PWM signal to make the Buzzer beep.
+* Timer2 will be used to stop the PWM ganerated by Timer1
+ 
+Lets look in detail at the configuartion
+
+Timer1 will utilize the internal clock of the MCU and will use PWM on channel 4 (could use any of the channels)
+Will activate interrupts associated to it which will allow us to stop the PWM the moment the counter overflows.
+Setting up the adequate Prescaler and Counter Period to obtain a 1s period using the formula in the datasheet
+![image](https://user-images.githubusercontent.com/33790012/134830553-c2c42971-5329-420c-be14-24cead341909.png)
+Considering we will use the MCU at 8MHz =>TIM_CLK=8MHZ by setting the prescalor to 7999 and Autoreload register to 999 we get an update event of 1000=1s which is what we want
+![image](https://user-images.githubusercontent.com/33790012/134830754-8a1facf7-cdb5-4b2c-adba-faf07ff86c40.png)
+
+The RTC will be used to increment the time but also to generate interrupts when the Alarm value entered by the User is reached
+In CubeMX you can just put placeholder values everywhere in its configuration,we will modify them in the Code.
+Should set the format to BCD and also activate both RTC Golabal interrupt and the RTC alarm interrupt through the NVIC
+![image](https://user-images.githubusercontent.com/33790012/134831014-5cd7843c-5760-461d-8528-b500ccbe1066.png)
+
+I2C configuration is straightforward
+
+### CubeMX Project Configuration
+In the project Tab , choose the adequate Toolchain to use , be it a Makefile or an IDE
+![image](https://user-images.githubusercontent.com/33790012/134831179-60f7bfda-a1f6-4e66-91cc-853eb9afd387.png)
+In the Code Generator Tab :
+1-Check copy only the necessary library files 
+2-Generate peripheral initialization as a pair of .c/.h files to a small main.c file (optional)
+![image](https://user-images.githubusercontent.com/33790012/134831327-1831aca3-a477-4ad2-bd14-8ae88c60d324.png)
+Clicking on Generate code will Generate our project.
+
+
+
   
 You can **disable the Enable Google Analytics** for this project option since it will not be needed this for this project. Finally, select **Create project**.
 
