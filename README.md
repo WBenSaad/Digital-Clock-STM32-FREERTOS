@@ -73,28 +73,26 @@ In the project we will need these peripherals:
  
 Lets look in detail at the configuartion
 
-Timer1 will utilize the internal clock of the MCU and will use PWM on channel 4 (could use any of the channels)
-Will activate interrupts associated to it which will allow us to stop the PWM the moment the counter overflows.
-Setting up the adequate Prescaler and Counter Period to obtain a 1s period using the formula in the datasheet
+Timer1 will utilize the internal clock of the MCU and will use PWM on channel 4 (could use any of the channels)  
+Will activate interrupts associated to it which will allow us to stop the PWM the moment the counter overflows.  
+Setting up the adequate Prescaler and Counter Period to obtain a 1s period using the formula in the datasheet  
 ![image](https://user-images.githubusercontent.com/33790012/134830553-c2c42971-5329-420c-be14-24cead341909.png)
-Considering we will use the MCU at 8MHz =>TIM_CLK=8MHZ by setting the prescalor to 7999 and Autoreload register to 999 we get an update event of 1000=1s which is what we want
+Considering we will use the MCU at 8MHz =>TIM_CLK=8MHZ by setting the prescalor to 7999 and Autoreload register to 999 we get an update event of 1000=1s which is what we want  
 ![image](https://user-images.githubusercontent.com/33790012/134830754-8a1facf7-cdb5-4b2c-adba-faf07ff86c40.png)
 
-The RTC will be used to increment the time but also to generate interrupts when the Alarm value entered by the User is reached
-In CubeMX you can just put placeholder values everywhere in its configuration,we will modify them in the Code.
-Should set the format to BCD and also activate both RTC Golabal interrupt and the RTC alarm interrupt through the NVIC
+The RTC will be used to increment the time but also to generate interrupts when the Alarm value entered by the User is reached.    
+In CubeMX you can just put placeholder values everywhere in its configuration,we will modify them in the Code.  
+Should set the format to BCD and also activate both RTC Golabal interrupt and the RTC alarm interrupt through the NVIC.  
 ![image](https://user-images.githubusercontent.com/33790012/134831014-5cd7843c-5760-461d-8528-b500ccbe1066.png)
-
-I2C configuration is straightforward
 
 ### CubeMX Project Configuration
 In the project Tab , choose the adequate Toolchain to use , be it a Makefile or an IDE
 ![image](https://user-images.githubusercontent.com/33790012/134831179-60f7bfda-a1f6-4e66-91cc-853eb9afd387.png)
 In the Code Generator Tab :
-1-Check copy only the necessary library files 
-2-Generate peripheral initialization as a pair of .c/.h files to a small main.c file (optional)
+1.Check copy only the necessary library files 
+2.Generate peripheral initialization as a pair of .c/.h files to a small main.c file (optional)
 ![image](https://user-images.githubusercontent.com/33790012/134831327-1831aca3-a477-4ad2-bd14-8ae88c60d324.png)
-Clicking on Generate code will Generate our project.
+Clicking on Generate code will Generate our project.  
 
 
 
