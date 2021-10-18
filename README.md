@@ -2,38 +2,6 @@
 
 # STM32 based DIGITAL-Clock 
 
-## Table of contents
-
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary>Table of Contents</summary>
-  <ol>
-    <li><a href="#about-the-project">About The Project</a></li>  
-    <li><a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#hardware-requirements">Hardware Requirements</a></li>
-        <li><a href="#software-requirements">Software Requirements</a></li>
-        <li><a href="#backend-setup">Backend Setup</a></li>
-      </ul>
-    </li>
-    <li><a href="#understanding-the-hardware">Understanding the hardware</a>
-      <ul>
-        <li><a href="#the-dht11-humidity-and-temperature-sensor">the DHT11 humidity and temperature sensor</a></li>
-        <li><a href="#the-rgb-leds">the RGB LEDs</a></li>
-      </ul>
- </li> 
-    <li><a href="#software-implementation">Software implementation</a></li>
-    <li><a href="#executing-the-program">Executing the program</a></li>
-    <li><a href="#making-an-upgrade">Making an upgrade</a></li>
-    <li><a href="#3d-conception">3D Conception</a></li>
-    <li><a href="#conclusion-and-perspective">Conclusion and perspective</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
-    
-    
-  </ol>
-</details>
-
    
 ## About the project
 
